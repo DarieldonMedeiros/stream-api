@@ -13,9 +13,8 @@ src/
 │   │   ├── FunctionExample.java
 │   │   ├── PredicateExample.java
 │   │   └── SupplierExample.java
-│   ├── optional/          # (vazio - para futuras implementações)
 │   └── stream/            # Desafios práticos com Stream API
-│       ├── Desafio01.java até Desafio19.java
+│       ├── Desafio01.java até Desafio20.java
 └── README.md
 ```
 
@@ -27,7 +26,7 @@ src/
 
 Representa uma operação que combina dois argumentos do tipo T e retorna um resultado do mesmo tipo T.
 
-**Exemplo:** Soma de números inteiros usando `Integer::sum` e `reduce()`.
+**Exemplo:** Soma de números inteiros usando `Integer::sum` e `reduce()` com uma lista de números [1, 2, 3, 4, 5].
 
 ### 2. Consumer<T>
 
@@ -35,7 +34,7 @@ Representa uma operação que combina dois argumentos do tipo T e retorna um res
 
 Representa uma operação que aceita um único argumento de entrada e não retorna nenhum resultado.
 
-**Exemplo:** Impressão de números pares usando `forEach()`.
+**Exemplo:** Impressão de números pares usando `forEach()` com uma lista de números de 1 a 10.
 
 ### 3. Function<T, R>
 
@@ -43,7 +42,7 @@ Representa uma operação que aceita um único argumento de entrada e não retor
 
 Representa uma função que aceita um argumento do tipo T e retorna um resultado do tipo R.
 
-**Exemplo:** Dobrar todos os números de uma lista usando `map()`.
+**Exemplo:** Dobrar todos os números de uma lista usando `map()` e `toList()` com uma lista de números [1, 2, 3, 4, 5].
 
 ### 4. Predicate<T>
 
@@ -51,7 +50,7 @@ Representa uma função que aceita um argumento do tipo T e retorna um resultado
 
 Representa uma função que aceita um argumento do tipo T e retorna um valor booleano.
 
-**Exemplo:** Filtrar palavras com mais de 5 caracteres usando `filter()`.
+**Exemplo:** Filtrar palavras com mais de 5 caracteres usando `filter()` com uma lista de linguagens de programação.
 
 ### 5. Supplier<T>
 
@@ -59,19 +58,19 @@ Representa uma função que aceita um argumento do tipo T e retorna um valor boo
 
 Representa uma operação que não aceita nenhum argumento e retorna um resultado do tipo T.
 
-**Exemplo:** Gerar lista de saudações usando `Stream.generate()`.
+**Exemplo:** Gerar lista de saudações usando `Stream.generate()` e `limit()` para criar 5 saudações personalizadas.
 
 ## Desafios de Stream API
 
-A pasta `stream/` contém 19 desafios práticos que demonstram diferentes operações da Stream API:
+A pasta `stream/` contém 20 desafios práticos que demonstram diferentes operações da Stream API:
 
 ### Desafios Básicos (1-5)
 
-- **Desafio01:** Ordenação de números usando `sorted()`
-- **Desafio02:** Soma de números pares usando `filter()` e `reduce()`
+- **Desafio01:** Ordenação de números usando `sorted()` e `forEach()`
+- **Desafio02:** Soma de números pares usando `filter()` e `reduce()` com `Integer::sum`
 - **Desafio03:** Verificação de números positivos usando `map()`
 - **Desafio04:** Filtro de números pares usando `filter()`
-- **Desafio05:** Cálculo de média de números maiores que 5 usando `average()`
+- **Desafio05:** Cálculo de média de números maiores que 5 usando `mapToDouble()` e `average()` com `orElseThrow()`
 
 ### Desafios Intermediários (6-15)
 
@@ -79,19 +78,20 @@ A pasta `stream/` contém 19 desafios práticos que demonstram diferentes opera�
 - **Desafio07:** Operações com números pares
 - **Desafio08:** Operações com números múltiplos de 3
 - **Desafio09:** Operações com números múltiplos de 5
-- **Desafio10:** Filtro de números múltiplos de 3 ou 5
-- **Desafio11:** Operações com números primos
+- **Desafio10:** Filtro de números múltiplos de 3 ou 5 usando `filter()` e `toList()`
+- **Desafio11:** Soma de quadrados usando `map()` com `Math.pow()` e `reduce()`
 - **Desafio12:** Operações com números quadrados perfeitos
 - **Desafio13:** Operações com números cúbicos
 - **Desafio14:** Operações com números triangulares
-- **Desafio15:** Contagem de números negativos usando `count()`
+- **Desafio15:** Contagem de números negativos usando `filter()` e `count()`
 
-### Desafios Avançados (16-19)
+### Desafios Avançados (16-20)
 
-- **Desafio16:** Operações com números de Fibonacci
+- **Desafio16:** Separação de números pares e ímpares usando `filter()` e `toList()`
 - **Desafio17:** Operações com números palíndromos
 - **Desafio18:** Operações com números perfeitos
-- **Desafio19:** Soma de números múltiplos de 3 ou 5 usando `sum()`
+- **Desafio19:** Soma de números múltiplos de 3 ou 5 usando `mapToInt()` e `sum()`
+- **Desafio20:** Cálculo de fatoriais usando `map()` com método recursivo e `toList()`
 
 ## Conceitos Demonstrados
 
@@ -103,11 +103,12 @@ A pasta `stream/` contém 19 desafios práticos que demonstram diferentes opera�
 
 ### Stream API
 
-- **Operações Intermediárias:** `filter()`, `map()`, `sorted()`, `distinct()`
-- **Operações Terminais:** `forEach()`, `reduce()`, `collect()`, `count()`, `sum()`, `average()`
+- **Operações Intermediárias:** `filter()`, `map()`, `sorted()`, `distinct()`, `mapToDouble()`, `mapToInt()`
+- **Operações Terminais:** `forEach()`, `reduce()`, `collect()`, `count()`, `sum()`, `average()`, `toList()`
 - **Operações de Redução:** `reduce()`, `sum()`, `average()`, `count()`
 - **Operações de Coleta:** `toList()`, `collect()`
 - **Tratamento de Exceções:** `orElseThrow()` para Optional
+- **Method References:** `Integer::sum`, `System.out::println`, `Integer::doubleValue`, `Integer::intValue`
 
 ## Como Executar
 
@@ -119,12 +120,16 @@ javac functional_interface/examples/BinaryOperatorExample.java
 java functional_interface.examples.BinaryOperatorExample
 ```
 
-### Desafios de Stream API
+### Desafios do Stream API
 
 ```bash
 # Exemplo: Executar o Desafio01
 javac functional_interface/stream/Desafio01.java
 java functional_interface.stream.Desafio01
+
+# Exemplo: Executar o Desafio20 (mais recente)
+javac functional_interface/stream/Desafio20.java
+java functional_interface.stream.Desafio20
 ```
 
 ## Tecnologias Utilizadas
@@ -134,6 +139,7 @@ java functional_interface.stream.Desafio01
 - **Interfaces Funcionais** do pacote `java.util.function`
 - **Optional** para tratamento de valores nulos
 - **Collections** para manipulação de listas
+- **Math** para operações matemáticas (`Math.pow()`)
 
 ## Objetivos de Aprendizado
 
@@ -145,6 +151,8 @@ Este projeto visa demonstrar:
 4. **Operações de transformação e filtragem** de dados
 5. **Tratamento de exceções** com Optional
 6. **Boas práticas** de código funcional
+7. **Recursão** em métodos auxiliares (ex: cálculo de fatorial)
+8. **Conversões de tipos** com `mapToDouble()` e `mapToInt()`
 
 ## Estrutura de Dados
 
